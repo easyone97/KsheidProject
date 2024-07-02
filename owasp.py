@@ -13,7 +13,7 @@ class OWASPApp:
         st.markdown("<br><br>", unsafe_allow_html=True)
         st.write("OWASP에서 발표한 LLM 애플리케이션에 영향을 미치는 가장 치명적인 취약점 상위 10가지")
         st.markdown("<br><br>", unsafe_allow_html=True)
-        with open("/content/drive/MyDrive/OWASP-Top-10-for-LLMs-2023-v1_1.pdf", "rb") as file:
+        with open("/Downloadfile/OWASP-Top-10-for-LLMs-2023-v1_1.pdf", "rb") as file:
             st.download_button(
                 label="Download OWASP Top 10 for LLMs PDF",
                 data=file,
