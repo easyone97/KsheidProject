@@ -13,7 +13,7 @@ class LLMSecurityApp:
         st.markdown("<br><br>", unsafe_allow_html=True)
         st.write("한국어 프롬프트를 활용한 LLM ")
         st.markdown("<br><br>", unsafe_allow_html=True)
-        with open("/content/drive/MyDrive/OWASP-Top-10-for-LLMs-2023-v1_1.pdf", "rb") as file:
+        with open("/Downloadfile/OWASP-Top-10-for-LLMs-2023-v1_1.pdf", "rb") as file:
             st.download_button(
                 label="OWASP Top 10 for LLMs",
                 data=file,
