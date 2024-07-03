@@ -1,4 +1,4 @@
-streamlit==1.36.0
-pandas==2.0.3
+pandas
+streamlit
 hydralit==1.0.14
 hydralit_components==1.0.10
