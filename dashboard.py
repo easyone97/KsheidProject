@@ -32,7 +32,7 @@ class DashboardApp:
         
         # 로딩 화면 표시
         with st.spinner('로딩 중...'):
-            results_df = load_results('dataset/final_result_test.csv')
+            results_df = load_results('Downloadfile/final_result_test.csv')
 
         # 로딩 완료 후 placeholder 업데이트
         with placeholder.container():
