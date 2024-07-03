@@ -1,6 +1,11 @@
 import pandas as pd
 import streamlit as st
 
+# 독립적인 함수로 분리하여 캐시 처리
+@st.cache_data
+def load_results(filename):
+    return pd.read_csv(filename)
+
 class PromptHistoryApp:
     def __init__(self):
         pass
@@ -8,10 +13,6 @@ class PromptHistoryApp:
     def assign_session(self, session_state, parent_app):
         self.session_state = session_state
         self.parent_app = parent_app
-
-    @st.cache_data
-    def load_results(self, filename):
-        return pd.read_csv(filename)
 
     def run(self):
         st.markdown(
@@ -74,7 +75,7 @@ class PromptHistoryApp:
 
         # 로딩 화면 표시
         with st.spinner('로딩 중...'):
-            results_df = self.load_results('Downloadfile/final_result_test.csv')  # 파일 경로는 서버에 맞게 조정해야 합니다.
+            results_df = load_results('Downloadfile/final_result_test.csv')  # 파일 경로는 서버에 맞게 조정해야 합니다.
 
         # 로딩 완료 후 콘텐츠 표시
         if results_df.empty:
