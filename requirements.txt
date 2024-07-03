@@ -2,3 +2,4 @@ streamlit
 hydralit
 hydralit_components
 numpy==1.22.0
+pandas==1.3.5
