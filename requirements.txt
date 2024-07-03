@@ -1,5 +1,5 @@
 pandas
-numpy
+numpy==1.25.2
 streamlit
 hydralit==1.0.14
 hydralit_components==1.0.10
