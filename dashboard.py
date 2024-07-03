@@ -5,8 +5,8 @@ import streamlit as st
 def load_results(filename):
     try:
     # 추가: 로딩 중에 빈 화면 표시
-    st.markdown("<div id='loading' style='height: 100vh;'></div>", unsafe_allow_html=True)
-    time.sleep(2)  # 로딩 시뮬레이션
+        st.markdown("<div id='loading' style='height: 100vh;'></div>", unsafe_allow_html=True)
+        time.sleep(2)  # 로딩 시뮬레이션
     # 기존 로드 함수
         return pd.read_csv(filename)
     except pd.errors.EmptyDataError:
