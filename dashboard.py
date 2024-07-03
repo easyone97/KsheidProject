@@ -77,7 +77,7 @@ class DashboardApp:
         st.markdown("<p style='font-size: 1.5em;'>당신의 LLM 탈옥 가능성을 확인해보세요!</p>", unsafe_allow_html=True)
         st.markdown("<br><br>", unsafe_allow_html=True)
 
-        results_df = load_results('dataset/final_result_test.csv')
+        results_df = load_results('Downloadfile/final_result_test.csv')
         
         if results_df.empty:
             st.warning("No data available to display.")
