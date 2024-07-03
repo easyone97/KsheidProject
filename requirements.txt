@@ -1,4 +1,4 @@
-streamlit==0.89.0
+streamlit
 hydralit
 hydralit_components
-numpy==1.21.2
+numpy
