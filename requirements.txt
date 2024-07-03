@@ -1,3 +1,4 @@
 pyngrok
 streamlit
 hydralit
+numpy
