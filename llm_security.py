@@ -11,7 +11,7 @@ class LLMSecurityApp:
     def run(self):
         st.title("LLM 한국형 보안 가이드라인")
         st.markdown("<br><br>", unsafe_allow_html=True)
-        with open("Downloadfile/OWASP-Top-10-for-LLMs-2023-v1_1.pdf", "rb") as file:
+        with open("Downloadfile/2024-LLM-한국형-보안-가이드라인.pdf", "rb") as file:
             st.download_button(
                 label="LLM-Download 한국형-보안-가이드라인 PDF",
                 data=file,
