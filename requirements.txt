@@ -1,4 +1,4 @@
 streamlit==0.89.0
-hydralit==1.0.0
-hydralit_components==1.0.0
+hydralit
+hydralit_components
 numpy==1.21.2
