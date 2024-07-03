@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+import time
 
 # 데이터 로드 및 처리 함수
 def load_results(filename):
