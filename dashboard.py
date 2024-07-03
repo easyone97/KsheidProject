@@ -2,6 +2,8 @@ import pandas as pd
 import streamlit as st
 import time  # 추가: 로딩 시뮬레이션을 위해
 
+# 독립적인 함수로 분리하여 캐시 처리
+@st.cache_data
 def load_results(filename):
     return pd.read_csv(filename)
 
@@ -30,7 +32,7 @@ class DashboardApp:
         
         # 로딩 화면 표시
         with st.spinner('로딩 중...'):
-            results_df = load_results('Downloadfile/final_result_test.csv')
+            results_df = load_results('dataset/final_result_test.csv')
 
         # 로딩 완료 후 placeholder 업데이트
         with placeholder.container():
@@ -151,6 +153,7 @@ class DashboardApp:
 if __name__ == "__main__":
     app = DashboardApp()
     app.run()
+
 
 
 
