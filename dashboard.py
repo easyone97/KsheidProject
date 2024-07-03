@@ -3,7 +3,17 @@ import streamlit as st
 
 # 데이터 로드 및 처리 함수
 def load_results(filename):
-    return pd.read_csv(filename)
+    try:
+        return pd.read_csv(filename)
+    except pd.errors.EmptyDataError:
+        st.error("The data file is empty. Please upload a valid data file.")
+        return pd.DataFrame()  # Return an empty DataFrame
+    except FileNotFoundError:
+        st.error("The data file was not found. Please check the file path.")
+        return pd.DataFrame()  # Return an empty DataFrame
+    except Exception as e:
+        st.error(f"An error occurred while loading the data file: {e}")
+        return pd.DataFrame()  # Return an empty DataFrame
 
 def calculate_success_rate(results_df):
     grouped = results_df.groupby(['type']).agg(
