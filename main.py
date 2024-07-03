@@ -1,15 +1,3 @@
-import subprocess
-import sys
-
-def install(package):
-    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
-
-# 설치 순서 지정
-install("streamlit==1.36.0")
-install("numpy==1.25.2")
-install("pandas==2.0.3")
-install("hydralit==1.0.14")
-install("hydralit_components==1.0.10")
 import streamlit as st
 from hydralit import HydraApp
 
