@@ -73,7 +73,7 @@ class PromptHistoryApp:
         st.markdown("<br><br>", unsafe_allow_html=True)
 
         # CSV 파일 경로 설정
-        output_path = '/dataset/final_result_test.csv'  # 파일 경로는 서버에 맞게 조정해야 합니다.
+        output_path = 'dataset/final_result_test.csv'  # 파일 경로는 서버에 맞게 조정해야 합니다.
 
         # 결과 데이터 로드
         results_df = self.load_results(output_path)
