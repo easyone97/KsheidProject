@@ -4,6 +4,10 @@ import streamlit as st
 # 데이터 로드 및 처리 함수
 def load_results(filename):
     try:
+    # 추가: 로딩 중에 빈 화면 표시
+    st.markdown("<div id='loading' style='height: 100vh;'></div>", unsafe_allow_html=True)
+    time.sleep(2)  # 로딩 시뮬레이션
+    # 기존 로드 함수
         return pd.read_csv(filename)
     except pd.errors.EmptyDataError:
         st.error("The data file is empty. Please upload a valid data file.")
