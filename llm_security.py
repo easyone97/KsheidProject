@@ -15,7 +15,7 @@ class LLMSecurityApp:
             st.download_button(
                 label="LLM-Download 한국형-보안-가이드라인 PDF",
                 data=file,
-                file_name="OWASP-Top-10-for-LLMs-2023-v1_1.pdf",
+                file_name="2024-LLM-한국형-보안-가이드라인.pdf",
                 mime="application/pdf",
             )
 if __name__ == "__main__":
