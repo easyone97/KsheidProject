@@ -1,4 +1,4 @@
-pyngrok
-streamlit
-hydralit
-numpy
+streamlit==0.89.0
+hydralit==1.0.0
+hydralit_components==1.0.0
+numpy==1.21.2
