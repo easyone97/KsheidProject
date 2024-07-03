@@ -13,7 +13,7 @@ class LLMSecurityApp:
         st.markdown("<br><br>", unsafe_allow_html=True)
         with open("Downloadfile/OWASP-Top-10-for-LLMs-2023-v1_1.pdf", "rb") as file:
             st.download_button(
-                label="OWASP Top 10 for LLMs",
+                label="LLM-Download 한국형-보안-가이드라인 PDF",
                 data=file,
                 file_name="OWASP-Top-10-for-LLMs-2023-v1_1.pdf",
                 mime="application/pdf",
