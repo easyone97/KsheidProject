@@ -5,8 +5,7 @@ import time
 # 데이터 로드 및 처리 함수
 def load_results(filename):
     try:
-    # 추가: 로딩 중에 빈 화면 표시
-        st.markdown("<div id='loading' style='height: 100vh;'></div>", unsafe_allow_html=True)
+    # 추가: 로딩 중에 빈 화면 표
         time.sleep(2)  # 로딩 시뮬레이션
     # 기존 로드 함수
         return pd.read_csv(filename)
@@ -36,6 +35,17 @@ class DashboardApp:
         self.session_state = session_state
 
     def run(self):
+        # 로딩 공간을 유지하기 위한 placeholder 생성
+        placeholder = st.empty()
+
+        with placeholder.container():
+            st.markdown("<style>body {background-color: white;}</style>", unsafe_allow_html=True)
+            st.markdown("<h1 style='font-size: 2.5em; color: #000000;'>로딩 중...</h1>", unsafe_allow_html=True)
+        
+        results_df = load_results('dataset/final_result_test.csv')
+
+        # 로딩 완료 후 placeholder 업데이트
+        with placeholder.container():
         st.markdown(
             """
             <style>
