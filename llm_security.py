@@ -9,9 +9,7 @@ class LLMSecurityApp:
         self.parent_app = parent_app
 
     def run(self):
-        st.title("OWASP Top 10 for LLMs")
-        st.markdown("<br><br>", unsafe_allow_html=True)
-        st.write("한국어 프롬프트를 활용한 LLM ")
+        st.title("LLM 한국형 보안 가이드라인")
         st.markdown("<br><br>", unsafe_allow_html=True)
         with open("Downloadfile/OWASP-Top-10-for-LLMs-2023-v1_1.pdf", "rb") as file:
             st.download_button(
