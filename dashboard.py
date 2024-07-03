@@ -78,6 +78,10 @@ class DashboardApp:
         st.markdown("<br><br>", unsafe_allow_html=True)
 
         results_df = load_results('dataset/final_result_test.csv')
+        
+        if results_df.empty:
+            st.warning("No data available to display.")
+            return
         total_cases = len(results_df)
         success_cases = (results_df['탈옥성공여부'] == 'success').sum()
         fail_cases = (results_df['탈옥성공여부'] == 'fail').sum()
