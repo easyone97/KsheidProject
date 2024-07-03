@@ -3,8 +3,6 @@ import streamlit as st
 import time  # 추가: 로딩 시뮬레이션을 위해
 
 def load_results(filename):
-    # 추가: 로딩 중에 빈 화면 표시
-    time.sleep(2)  # 로딩 시뮬레이션
     return pd.read_csv(filename)
 
 def calculate_success_rate(results_df):
@@ -30,7 +28,9 @@ class DashboardApp:
             st.markdown("<style>body {background-color: white;}</style>", unsafe_allow_html=True)
             st.markdown("<h1 style='font-size: 2.5em; color: #000000;'>로딩 중...</h1>", unsafe_allow_html=True)
         
-        results_df = load_results('Downloadfile/final_result_test.csv')
+        # 로딩 화면 표시
+        with st.spinner('로딩 중...'):
+            results_df = load_results('dataset/final_result_test.csv')
 
         # 로딩 완료 후 placeholder 업데이트
         with placeholder.container():
@@ -151,6 +151,7 @@ class DashboardApp:
 if __name__ == "__main__":
     app = DashboardApp()
     app.run()
+
 
 
 
