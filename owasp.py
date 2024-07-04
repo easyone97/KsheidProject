@@ -69,7 +69,7 @@ class OWASPApp:
             {
                 "title": "탈옥공격 구문 체크리스트",
                 "description": "탈옥공격의 위험성을 체크할 수 있는 구문 616개, 유해한 질문 6개",
-                "image": "Images/checklist.jpg",
+                "image": "Images/checklist.png",
                 "file": "Downloadfile/jailbreakPrompt.csv"
             }
         ]
