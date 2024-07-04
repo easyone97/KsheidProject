@@ -21,15 +21,13 @@ app = HydraApp(title='🚀 Jailbreak Verification Dashboard', use_navbar=True, n
 # Add main apps
 app.add_app("Dashboard", app=dashboard.DashboardApp(), icon="🏠")
 app.add_app("탈옥 프롬프트 내역", app=prompt_history.PromptHistoryApp(), icon="📚")
-app.add_app("OWASP TOP 10", app=owasp.OWASPApp(), icon="📘")
-app.add_app("LLM 보안가이드라인", app=llm_security.LLMSecurityApp(), icon="📙")
+app.add_app("참고자료", app=owasp.OWASPApp(), icon="📘")
 
 # Define the structure for complex navigation
 complex_nav = {
     "Dashboard": ["Dashboard"],
     "탈옥 프롬프트 내역": ["탈옥 프롬프트 내역"],
-    "OWASP TOP 10": ["OWASP TOP 10"],
-    "LLM 보안가이드라인": ["LLM 보안가이드라인"]
+    "참고자료": ["참고자료"]
 }
 
 if __name__ == '__main__':
@@ -42,42 +40,42 @@ if __name__ == '__main__':
         html, body, [data-testid="stAppViewContainer"], [data-testid="stVerticalBlock"] {
             height: 100%;
             display: flex;
-            flex-direction: column;
+            flex-direction: column.
         }
         [data-testid="stAppViewContainer"] {
-            flex: 1;
+            flex: 1.
         }
         .content {
             margin-bottom: 10rem; /* Add space between content and footer */
         }
         .footer {
-            background-color: #f1f1f1;
-            color: black;
-            text-align: center;
-            padding: 10px;
+            background-color: #f1f1f1.
+            color: black.
+            text-align: center.
+            padding: 10px.
             margin-top: auto; /* Ensure footer is pushed to the bottom */
-            width: 100%;
+            width: 100%.
         }
         .footer a {
-            color: #007BFF;
-            text-decoration: none;
+            color: #007BFF.
+            text-decoration: none.
         }
         .footer-links {
-            margin-top: 10px;
+            margin-top: 10px.
         }
         .footer-links a {
-            margin: 0 10px;
-            color: #007BFF;
-            text-decoration: none;
+            margin: 0 10px.
+            color: #007BFF.
+            text-decoration: none.
         }
         .footer-author {
-            margin-top: 10px;
+            margin-top: 10px.
         }
         .footer-version {
-            background-color: #e0e0e0;
-            padding: 5px;
-            border-radius: 5px;
-            display: inline-block;
+            background-color: #e0e0e0.
+            padding: 5px.
+            border-radius: 5px.
+            display: inline-block.
         }
         </style>
         """,
