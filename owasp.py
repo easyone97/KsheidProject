@@ -9,7 +9,12 @@ class OWASPApp:
         self.parent_app = parent_app
 
     def run(self):
-        st.title("참고자료")
+        col0, col1, col2 = st.columns([1, 2, 9])
+        with col0:
+            st.empty()  # 왼쪽 공백 추가
+        with col1:
+            st.title("참고자료")
+
         st.markdown("<br><br>", unsafe_allow_html=True)
 
         # 다운로드 버튼 스타일 설정
@@ -122,10 +127,6 @@ class OWASPApp:
 if __name__ == "__main__":
     app = OWASPApp()
     app.run()
-
-
-
-
 
 
 
