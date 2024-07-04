@@ -35,6 +35,7 @@ class OWASPApp:
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                width: 100%;
                 padding: 20px;
                 border: 1px solid #e0e0e0;
                 border-radius: 10px;
@@ -54,6 +55,12 @@ class OWASPApp:
             .reference-text p {
                 font-size: 18px;
                 margin: 0;
+            }
+            .reference-item {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
             }
             </style>
         """, unsafe_allow_html=True)
