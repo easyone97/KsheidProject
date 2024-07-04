@@ -36,7 +36,7 @@ class OWASPApp:
 
         # 참고자료 항목 표시
         for index, ref in enumerate(references):
-            col0, col1, col2, col3 = st.columns([1, 2, 4, 2], gap="medium")
+            col0, col1, col2, col3 = st.columns([1, 2, 6, 2], gap="medium")
             with col0:
                 st.empty()  # 빈 컬럼으로 공백 추가
             with col1:
@@ -44,7 +44,7 @@ class OWASPApp:
             with col2:
                 st.markdown(
                     f"""
-                    <div style='display: flex; flex-direction: column; align-items: center;'>
+                    <div style='display: flex; flex-direction: column; align-items: flex-start;'>
                         <h3>{ref['title']}</h3>
                         <p>{ref['description']}</p>
                     </div>
