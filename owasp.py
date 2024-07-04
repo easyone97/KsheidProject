@@ -39,7 +39,7 @@ class OWASPApp:
             .reference-container {
                 display: flex;
                 align-items: center;
-                justify-content: space-between;
+                justify-content: center;
                 width: 100%;
                 padding: 20px;
                 border: 1px solid #e0e0e0;
