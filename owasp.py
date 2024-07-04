@@ -10,6 +10,8 @@ class OWASPApp:
 
     def run(self):
         st.title("참고자료")
+        st.markdown("<br><br>", unsafe_allow_html=True)
+
 
         # 참고자료 항목들
         references = [
