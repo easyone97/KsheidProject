@@ -35,7 +35,7 @@ class OWASPApp:
         ]
 
         # 참고자료 항목 표시
-        for ref in references:
+        for index, ref in enumerate(references):
             col1, col2, col3 = st.columns([2, 6, 2], gap="medium")
             with col1:
                 st.image(ref["image"], width=150)
@@ -55,12 +55,14 @@ class OWASPApp:
                         label="PDF 다운로드" if ref["file"].endswith(".pdf") else "CSV 다운로드", 
                         data=file, 
                         file_name=ref["file"].split("/")[-1], 
-                        mime="text/csv" if ref["file"].endswith(".csv") else "application/pdf"
+                        mime="text/csv" if ref["file"].endswith(".csv") else "application/pdf",
+                        key=f"download_button_{index}"
                     )
 
 if __name__ == "__main__":
     app = OWASPApp()
     app.run()
+
 
 
 
