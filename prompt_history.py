@@ -18,7 +18,7 @@ class PromptHistoryApp:
         # 로딩 공간을 유지하기 위한 placeholder 생성
         placeholder = st.empty()
 
-        with placeholder.container():
+        with placeholder.container(border=True):
             st.markdown("<style>body {background-color: white;}</style>", unsafe_allow_html=True)
             st.markdown("<h1 style='font-size: 2.5em; color: #000000;'>로딩 중...</h1>", unsafe_allow_html=True)
 
@@ -27,7 +27,7 @@ class PromptHistoryApp:
             results_df = load_results('Downloadfile/final_result_test.csv')  # 파일 경로는 서버에 맞게 조정해야 합니다.
 
         # 로딩 완료 후 placeholder 업데이트
-        with placeholder.container():
+        with placeholder.container(border=True):
             st.markdown(
                 """
                 <style>
