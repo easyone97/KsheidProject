@@ -83,7 +83,7 @@ class OWASPApp:
                 "title": "2024 LLM 한국형 보안 가이드라인",
                 "description": "LLM 보안 가이드라인",
                 "image": "Images/가이드라인.jpeg",
-                "file": "Downloadfile/OWASP-Top-10-for-LLMs-2023-v1_1.pdf"
+                "file": "Downloadfile/2024-LLM-한국형-보안-가이드라인.pdf"
             },
             {
                 "title": "탈옥공격 구문 체크리스트",
