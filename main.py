@@ -21,8 +21,6 @@ app = HydraApp(title='🚀 Jailbreak Verification Dashboard', use_navbar=True, n
 # Add main apps
 app.add_app("Dashboard", app=dashboard.DashboardApp(), icon="🏠")
 app.add_app("탈옥 프롬프트 내역", app=prompt_history.PromptHistoryApp(), icon="📚")
-
-# Add OWASP and LLM security pages under 참고자료 section
 app.add_app("OWASP TOP 10", app=owasp.OWASPApp(), icon="📘")
 app.add_app("LLM 보안가이드라인", app=llm_security.LLMSecurityApp(), icon="📙")
 
@@ -30,7 +28,8 @@ app.add_app("LLM 보안가이드라인", app=llm_security.LLMSecurityApp(), icon
 complex_nav = {
     "Dashboard": ["Dashboard"],
     "탈옥 프롬프트 내역": ["탈옥 프롬프트 내역"],
-    "참고자료": ["OWASP TOP 10", "LLM 보안가이드라인"]
+    "OWASP TOP 10": ["OWASP TOP 10"],
+    "LLM 보안가이드라인": ["LLM 보안가이드라인"]
 }
 
 if __name__ == '__main__':
@@ -105,6 +104,7 @@ if __name__ == '__main__':
         """,
         unsafe_allow_html=True
     )
+
 
 
 
