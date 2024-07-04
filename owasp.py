@@ -31,6 +31,24 @@ class OWASPApp:
             .stDownloadButton > button:hover {
                 background-color: #00BFFF;
             }
+            .reference-item {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+            .reference-text {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .reference-text h3 {
+                font-size: 24px;
+            }
+            .reference-text p {
+                font-size: 18px;
+            }
             </style>
         """, unsafe_allow_html=True)
 
@@ -51,14 +69,14 @@ class OWASPApp:
             {
                 "title": "탈옥공격 구문 체크리스트",
                 "description": "탈옥공격의 위험성을 체크할 수 있는 구문 616개, 유해한 질문 6개",
-                "image": "Images/checklist.png",
+                "image": "Images/checklist.jpg",
                 "file": "Downloadfile/jailbreakPrompt.csv"
             }
         ]
 
         # 참고자료 항목 표시
         for index, ref in enumerate(references):
-            with st.container(border=True):
+            with st.container():
                 col0, col1, col2, col3 = st.columns([1, 2, 6, 2])
                 with col0:
                     st.empty()  # 빈 컬럼으로 공백 추가
@@ -67,26 +85,34 @@ class OWASPApp:
                 with col2:
                     st.markdown(
                         f"""
-                        <div style='display: flex; flex-direction: column; align-items: flex-start;'>
-                            <h3>{ref['title']}</h3>
-                            <p>{ref['description']}</p>
+                        <div class="reference-item">
+                            <div class="reference-text">
+                                <h3>{ref['title']}</h3>
+                                <p>{ref['description']}</p>
+                            </div>
                         </div>
                         """, 
                         unsafe_allow_html=True
                     )
                 with col3:
                     with open(ref["file"], "rb") as file:
-                        st.download_button(
-                            label="PDF 다운로드" if ref["file"].endswith(".pdf") else "CSV 다운로드", 
-                            data=file, 
-                            file_name=ref["file"].split("/")[-1], 
-                            mime="text/csv" if ref["file"].endswith(".csv") else "application/pdf",
-                            key=f"download_button_{index}"
+                        st.markdown(
+                            f"""
+                            <div class="reference-item">
+                                <div>
+                                    <a href="data:{"application/pdf" if ref["file"].endswith(".pdf") else "text/csv"};base64,{file.read().decode('utf-8')}" download="{ref["file"].split("/")[-1]}" class="stDownloadButton">
+                                        <button>PDF 다운로드</button>
+                                    </a>
+                                </div>
+                            </div>
+                            """,
+                            unsafe_allow_html=True
                         )
 
 if __name__ == "__main__":
     app = OWASPApp()
     app.run()
+
 
 
 
