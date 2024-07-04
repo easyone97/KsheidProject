@@ -1,5 +1,4 @@
 import streamlit as st
-import base64
 
 class OWASPApp:
     def __init__(self):
@@ -84,31 +83,36 @@ class OWASPApp:
 
         # 참고자료 항목 표시
         for index, ref in enumerate(references):
-            with open(ref["file"], "rb") as file:
-                b64_file = base64.b64encode(file.read()).decode()
-
             with st.container(border=True):
-                st.markdown(
-                    f"""
-                    <div class="reference-container">
-                        <img src="{ref['image']}" width="150" />
-                        <div class="reference-text">
-                            <h3>{ref['title']}</h3>
-                            <p>{ref['description']}</p>
+                col1, col2, col3 = st.columns([2, 6, 2])
+                with col1:
+                    st.image(ref["image"], width=150)
+                with col2:
+                    st.markdown(
+                        f"""
+                        <div class="reference-item">
+                            <div class="reference-text">
+                                <h3>{ref['title']}</h3>
+                                <p>{ref['description']}</p>
+                            </div>
                         </div>
-                        <div>
-                            <a href="data:application/octet-stream;base64,{b64_file}" download="{ref['file'].split("/")[-1]}" class="stDownloadButton">
-                                <button>{"PDF 다운로드" if ref["file"].endswith(".pdf") else "CSV 다운로드"}</button>
-                            </a>
-                        </div>
-                    </div>
-                    """,
-                    unsafe_allow_html=True
-                )
+                        """, 
+                        unsafe_allow_html=True
+                    )
+                with col3:
+                    with open(ref["file"], "rb") as file:
+                        st.download_button(
+                            label="PDF 다운로드" if ref["file"].endswith(".pdf") else "CSV 다운로드", 
+                            data=file, 
+                            file_name=ref["file"].split("/")[-1], 
+                            mime="text/csv" if ref["file"].endswith(".csv") else "application/pdf",
+                            key=f"download_button_{index}"
+                        )
 
 if __name__ == "__main__":
     app = OWASPApp()
     app.run()
+
 
 
 
