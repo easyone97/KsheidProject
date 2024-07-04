@@ -1,4 +1,5 @@
 import streamlit as st
+import base64
 
 class OWASPApp:
     def __init__(self):
@@ -31,28 +32,6 @@ class OWASPApp:
             .stDownloadButton > button:hover {
                 background-color: #00BFFF;
             }
-            .reference-item {
-                display: flex;
-                align-items: center;
-                justify-content: flex-start;
-                margin-bottom: 20px;
-                width: 100%;
-            }
-            .reference-text {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                text-align: left;
-                padding-left: 20px;
-            }
-            .reference-text h3 {
-                font-size: 24px;
-                margin: 0;
-            }
-            .reference-text p {
-                font-size: 18px;
-                margin: 0;
-            }
             .reference-container {
                 display: flex;
                 align-items: center;
@@ -62,6 +41,21 @@ class OWASPApp:
                 border: 1px solid #e0e0e0;
                 border-radius: 10px;
                 margin-bottom: 20px;
+            }
+            .reference-text {
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding-left: 20px;
+            }
+            .reference-text h3 {
+                font-size: 24px;
+                margin: 0;
+            }
+            .reference-text p {
+                font-size: 18px;
+                margin: 0;
             }
             </style>
         """, unsafe_allow_html=True)
@@ -90,6 +84,9 @@ class OWASPApp:
 
         # 참고자료 항목 표시
         for index, ref in enumerate(references):
+            with open(ref["file"], "rb") as file:
+                b64_file = base64.b64encode(file.read()).decode()
+
             with st.container(border=True):
                 st.markdown(
                     f"""
@@ -100,7 +97,7 @@ class OWASPApp:
                             <p>{ref['description']}</p>
                         </div>
                         <div>
-                            <a href="data:application/octet-stream;base64,{ref['file']}" download="{ref['file'].split("/")[-1]}" class="stDownloadButton">
+                            <a href="data:application/octet-stream;base64,{b64_file}" download="{ref['file'].split("/")[-1]}" class="stDownloadButton">
                                 <button>{"PDF 다운로드" if ref["file"].endswith(".pdf") else "CSV 다운로드"}</button>
                             </a>
                         </div>
@@ -112,6 +109,7 @@ class OWASPApp:
 if __name__ == "__main__":
     app = OWASPApp()
     app.run()
+
 
 
 
