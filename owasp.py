@@ -17,7 +17,7 @@ class OWASPApp:
 
         st.markdown("<br><br>", unsafe_allow_html=True)
 
-        # 다운로드 버튼 스타일 설정
+        # CSS 스타일 설정
         st.markdown("""
             <style>
             .stDownloadButton > button {
@@ -45,6 +45,7 @@ class OWASPApp:
                 border: 1px solid #e0e0e0;
                 border-radius: 10px;
                 margin-bottom: 20px;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
             }
             .reference-text {
                 flex-grow: 1;
@@ -127,6 +128,7 @@ class OWASPApp:
 if __name__ == "__main__":
     app = OWASPApp()
     app.run()
+
 
 
 
