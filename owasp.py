@@ -15,20 +15,20 @@ class OWASPApp:
         # 참고자료 항목들
         references = [
             {
-                "title": "OWASP TOP 10",
-                "description": "LLM을 위한 OWASP Top 10",
+                "title": "OWASP Top 10 for LLM",
+                "description": "OWASP에서 발표한 LLM 애플리케이션에 영향을 미치는 가장 치명적인 취약점 상위 10가지",
                 "image": "https://via.placeholder.com/100",
                 "file": "Downloadfile/OWASP-Top-10-for-LLMs-2023-v1_1.pdf"
             },
             {
-                "title": "LLM 보안가이드라인",
+                "title": "2024 LLM 한국형 보안 가이드라인",
                 "description": "LLM 보안 가이드라인",
                 "image": "https://via.placeholder.com/100",
                 "file": "Downloadfile/LLM_Security_Guidelines.pdf"
             },
             {
                 "title": "탈옥공격 구문 체크리스트",
-                "description": "응용 프로그램을 안전하게 유지하기 위한 모범 사례",
+                "description": "탈옥공격의 위험성을 체크할수있는 구문 616개, 유해한질문 6개",
                 "image": "https://via.placeholder.com/100",
                 "file": "Downloadfile/Cybersecurity_Best_Practices.pdf"
             }
