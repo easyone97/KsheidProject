@@ -36,8 +36,8 @@ class OWASPApp:
 
         # 참고자료 항목 표시
         for index, ref in enumerate(references):
-            with st.container(border=True):
-                col0, col1, col2, col3 = st.columns([1, 2, 6, 2], gap="medium")
+            with st.container():
+                col0, col1, col2, col3 = st.columns([1, 2, 6, 2])
                 with col0:
                     st.empty()  # 빈 컬럼으로 공백 추가
                 with col1:
@@ -65,6 +65,7 @@ class OWASPApp:
 if __name__ == "__main__":
     app = OWASPApp()
     app.run()
+
 
 
 
