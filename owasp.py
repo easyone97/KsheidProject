@@ -76,7 +76,7 @@ class OWASPApp:
 
         # 참고자료 항목 표시
         for index, ref in enumerate(references):
-            with st.container():
+            with st.container(border=True):
                 col0, col1, col2, col3 = st.columns([1, 2, 6, 2])
                 with col0:
                     st.empty()  # 빈 컬럼으로 공백 추가
@@ -96,22 +96,18 @@ class OWASPApp:
                     )
                 with col3:
                     with open(ref["file"], "rb") as file:
-                        st.markdown(
-                            f"""
-                            <div class="reference-item">
-                                <div>
-                                    <a href="data:{"application/pdf" if ref["file"].endswith(".pdf") else "text/csv"};base64,{file.read().decode('utf-8')}" download="{ref["file"].split("/")[-1]}" class="stDownloadButton">
-                                        <button>PDF 다운로드</button>
-                                    </a>
-                                </div>
-                            </div>
-                            """,
-                            unsafe_allow_html=True
+                        st.download_button(
+                            label="PDF 다운로드" if ref["file"].endswith(".pdf") else "CSV 다운로드", 
+                            data=file, 
+                            file_name=ref["file"].split("/")[-1], 
+                            mime="text/csv" if ref["file"].endswith(".csv") else "application/pdf",
+                            key=f"download_button_{index}"
                         )
 
 if __name__ == "__main__":
     app = OWASPApp()
     app.run()
+
 
 
 
