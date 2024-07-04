@@ -36,10 +36,12 @@ class OWASPApp:
                 align-items: center;
                 justify-content: space-between;
                 width: 100%;
-                padding: 10px;
+                padding: 20px;
                 border: 1px solid #e0e0e0;
                 border-radius: 10px;
                 margin-bottom: 20px;
+                margin-left: 120px;
+                margin-right: 120px;
             }
             .reference-text {
                 flex-grow: 1;
@@ -84,30 +86,23 @@ class OWASPApp:
         # 참고자료 항목 표시
         for index, ref in enumerate(references):
             with st.container(border=True):
-                col1, col2, col3 = st.columns([2, 6, 2])
-                with col1:
-                    st.image(ref["image"], width=150)
-                with col2:
-                    st.markdown(
-                        f"""
-                        <div class="reference-item">
-                            <div class="reference-text">
-                                <h3>{ref['title']}</h3>
-                                <p>{ref['description']}</p>
+                st.markdown(
+                    f"""
+                    <div class="reference-container">
+                        <img src="{ref['image']}" width="150" />
+                        <div class="reference-text">
+                            <h3>{ref['title']}</h3>
+                            <p>{ref['description']}</p>
+                        </div>
+                        <div>
+                            <div class="stDownloadButton">
+                                <button onclick="window.location.href='{ref['file']}'">{"PDF 다운로드" if ref["file"].endswith(".pdf") else "CSV 다운로드"}</button>
                             </div>
                         </div>
-                        """, 
-                        unsafe_allow_html=True
-                    )
-                with col3:
-                    with open(ref["file"], "rb") as file:
-                        st.download_button(
-                            label="PDF 다운로드" if ref["file"].endswith(".pdf") else "CSV 다운로드", 
-                            data=file, 
-                            file_name=ref["file"].split("/")[-1], 
-                            mime="text/csv" if ref["file"].endswith(".csv") else "application/pdf",
-                            key=f"download_button_{index}"
-                        )
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
 
 if __name__ == "__main__":
     app = OWASPApp()
