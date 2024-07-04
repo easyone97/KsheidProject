@@ -1,4 +1,5 @@
 import streamlit as st
+import base64
 
 class OWASPApp:
     def __init__(self):
@@ -74,10 +75,9 @@ class OWASPApp:
                     )
                 with col3:
                     with open(ref["file"], "rb") as file:
-                        st.markdown(
-                            f'<a href="data:{"application/pdf" if ref["file"].endswith(".pdf") else "text/csv"};base64,{file.read().decode("utf-8")}" download="{ref["file"].split("/")[-1]}" class="download-button">{"PDF 다운로드" if ref["file"].endswith(".pdf") else "CSV 다운로드"}</a>',
-                            unsafe_allow_html=True
-                        )
+                        b64 = base64.b64encode(file.read()).decode()
+                        href = f'<a href="data:application/octet-stream;base64,{b64}" download="{ref["file"].split("/")[-1]}" class="download-button">{"PDF 다운로드" if ref["file"].endswith(".pdf") else "CSV 다운로드"}</a>'
+                        st.markdown(href, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     app = OWASPApp()
