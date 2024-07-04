@@ -33,49 +33,49 @@ complex_nav = {
 if __name__ == '__main__':
     app.run(complex_nav=complex_nav)
 
-    # Footer with "Powered by", "Contact Us", and version
+  # Footer with "Powered by", "Contact Us", and version
     st.markdown(
         """
         <style>
         html, body, [data-testid="stAppViewContainer"], [data-testid="stVerticalBlock"] {
             height: 100%;
             display: flex;
-            flex-direction: column.
+            flex-direction: column;
         }
         [data-testid="stAppViewContainer"] {
-            flex: 1.
+            flex: 1;
         }
         .content {
             margin-bottom: 10rem; /* Add space between content and footer */
         }
         .footer {
-            background-color: #f1f1f1.
-            color: black.
-            text-align: center.
-            padding: 10px.
+            background-color: #f1f1f1;
+            color: black;
+            text-align: center;
+            padding: 10px;
             margin-top: auto; /* Ensure footer is pushed to the bottom */
-            width: 100%.
+            width: 100%;
         }
         .footer a {
-            color: #007BFF.
-            text-decoration: none.
+            color: #007BFF;
+            text-decoration: none;
         }
         .footer-links {
-            margin-top: 10px.
+            margin-top: 10px;
         }
         .footer-links a {
-            margin: 0 10px.
-            color: #007BFF.
-            text-decoration: none.
+            margin: 0 10px;
+            color: #007BFF;
+            text-decoration: none;
         }
         .footer-author {
-            margin-top: 10px.
+            margin-top: 10px;
         }
         .footer-version {
-            background-color: #e0e0e0.
-            padding: 5px.
-            border-radius: 5px.
-            display: inline-block.
+            background-color: #e0e0e0;
+            padding: 5px;
+            border-radius: 5px;
+            display: inline-block;
         }
         </style>
         """,
@@ -102,9 +102,6 @@ if __name__ == '__main__':
         """,
         unsafe_allow_html=True
     )
-
-
-
 
 
 
