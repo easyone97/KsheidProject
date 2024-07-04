@@ -1,4 +1,4 @@
-iimport streamlit as st
+import streamlit as st
 
 class OWASPApp:
     def __init__(self):
@@ -40,7 +40,15 @@ class OWASPApp:
             with col1:
                 st.image(ref["image"], width=150)
             with col2:
-                st.markdown(f"<div style='text-align: center;'><h3>{ref['title']}</h3><p>{ref['description']}</p></div>", unsafe_allow_html=True)
+                st.markdown(
+                    f"""
+                    <div style='display: flex; flex-direction: column; align-items: center;'>
+                        <h3>{ref['title']}</h3>
+                        <p>{ref['description']}</p>
+                    </div>
+                    """, 
+                    unsafe_allow_html=True
+                )
             with col3:
                 with open(ref["file"], "rb") as file:
                     st.download_button(
