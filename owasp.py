@@ -34,14 +34,15 @@ class OWASPApp:
             .reference-item {
                 display: flex;
                 align-items: center;
-                justify-content: center;
+                justify-content: flex-start;
                 margin-bottom: 20px;
             }
             .reference-text {
                 display: flex;
                 flex-direction: column;
-                align-items: center;
-                text-align: center;
+                justify-content: center;
+                text-align: left;
+                padding-left: 10px;
             }
             .reference-text h3 {
                 font-size: 24px;
@@ -69,14 +70,14 @@ class OWASPApp:
             {
                 "title": "탈옥공격 구문 체크리스트",
                 "description": "탈옥공격의 위험성을 체크할 수 있는 구문 616개, 유해한 질문 6개",
-                "image": "Images/checklist.png",
+                "image": "Images/checklist.jpg",
                 "file": "Downloadfile/jailbreakPrompt.csv"
             }
         ]
 
         # 참고자료 항목 표시
         for index, ref in enumerate(references):
-            with st.container(border=True):
+            with st.container():
                 col0, col1, col2, col3 = st.columns([1, 2, 6, 2])
                 with col0:
                     st.empty()  # 빈 컬럼으로 공백 추가
@@ -107,6 +108,7 @@ class OWASPApp:
 if __name__ == "__main__":
     app = OWASPApp()
     app.run()
+
 
 
 
