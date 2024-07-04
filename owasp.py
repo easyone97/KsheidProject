@@ -1,5 +1,4 @@
 import streamlit as st
-import base64
 
 class OWASPApp:
     def __init__(self):
@@ -35,28 +34,6 @@ class OWASPApp:
             }
         ]
 
-        # 다운로드 버튼 스타일 설정
-        st.markdown("""
-            <style>
-            .download-button {
-                background-color: #87CEEB;
-                color: white;
-                border: none;
-                padding: 8px 16px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 16px;
-                margin: 4px 2px;
-                cursor: pointer;
-                border-radius: 4px;
-            }
-            .download-button:hover {
-                background-color: #00BFFF;
-            }
-            </style>
-        """, unsafe_allow_html=True)
-
         # 참고자료 항목 표시
         for index, ref in enumerate(references):
             with st.container():
@@ -75,13 +52,18 @@ class OWASPApp:
                     )
                 with col3:
                     with open(ref["file"], "rb") as file:
-                        b64 = base64.b64encode(file.read()).decode()
-                        href = f'<a href="data:application/octet-stream;base64,{b64}" download="{ref["file"].split("/")[-1]}" class="download-button">{"PDF 다운로드" if ref["file"].endswith(".pdf") else "CSV 다운로드"}</a>'
-                        st.markdown(href, unsafe_allow_html=True)
+                        st.download_button(
+                            label="PDF 다운로드" if ref["file"].endswith(".pdf") else "CSV 다운로드", 
+                            data=file, 
+                            file_name=ref["file"].split("/")[-1], 
+                            mime="text/csv" if ref["file"].endswith(".csv") else "application/pdf",
+                            key=f"download_button_{index}"
+                        )
 
 if __name__ == "__main__":
     app = OWASPApp()
     app.run()
+
 
 
 
