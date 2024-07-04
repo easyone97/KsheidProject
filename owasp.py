@@ -81,7 +81,7 @@ class OWASPApp:
             },
             {
                 "title": "2024 LLM 한국형 보안 가이드라인",
-                "description": "프롬프트 주입 공격(탈옥)에 중점을 둔 LLM 한국형 보안 안내서 <br> by K-Shield Jr 12기 Team [세종업고튀어]",
+                "description": "프롬프트 주입 공격(탈옥)에 중점을 둔 LLM 한국형 보안 안내서 <br> by K-Shield Jr 12기 Team.세종업고튀어",
                 "image": "Images/가이드라인.jpeg",
                 "file": "Downloadfile/2024-LLM-한국형-보안-가이드라인.pdf"
             },
