@@ -18,7 +18,7 @@ class PromptHistoryApp:
         # 로딩 공간을 유지하기 위한 placeholder 생성
         placeholder = st.empty()
 
-        with placeholder.container(border=True):
+        with placeholder.container():
             st.markdown("<style>body {background-color: white;}</style>", unsafe_allow_html=True)
             st.markdown("<h1 style='font-size: 2.5em; color: #000000;'>로딩 중...</h1>", unsafe_allow_html=True)
 
@@ -27,7 +27,7 @@ class PromptHistoryApp:
             results_df = load_results('Downloadfile/final_result_test.csv')  # 파일 경로는 서버에 맞게 조정해야 합니다.
 
         # 로딩 완료 후 placeholder 업데이트
-        with placeholder.container(border=True):
+        with placeholder.container():
             st.markdown(
                 """
                 <style>
@@ -99,7 +99,7 @@ class PromptHistoryApp:
             col1, col2 = st.columns([2, 8])
 
             with col1:
-                with st.container():
+                with st.container(border=True):
                     st.markdown("<div class='filter-label'>Type 선택</div>", unsafe_allow_html=True)
                     type_options = ["전체"] + results_df['type'].unique().tolist()
                     selected_types = st.multiselect("", type_options, default=st.session_state.selected_types)
@@ -110,7 +110,7 @@ class PromptHistoryApp:
 
                 st.markdown("<div class='container-spacing'></div>", unsafe_allow_html=True)
 
-                with st.container():
+                with st.container(border=True):
                     st.markdown("<div class='filter-label'>탈옥 성공 여부 선택</div>", unsafe_allow_html=True)
                     success_options_display = ["전체", "Success", "Fail"]
                     success_options_actual = ["전체", "success", "fail"]
