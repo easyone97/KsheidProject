@@ -29,7 +29,7 @@ class OWASPApp:
             {
                 "title": "탈옥공격 구문 체크리스트",
                 "description": "탈옥공격의 위험성을 체크할 수 있는 구문 616개, 유해한 질문 6개",
-                "image": "https://www.kindpng.com/picc/m/376-3767580_csv-file-icon-hd-png-download.png",
+                "image": "Images/checklist.jpg",
                 "file": "Downloadfile/jailbreakPrompt.csv"
             }
         ]
@@ -62,6 +62,7 @@ class OWASPApp:
 if __name__ == "__main__":
     app = OWASPApp()
     app.run()
+
 
 
 
