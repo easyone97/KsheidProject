@@ -81,13 +81,13 @@ class OWASPApp:
             },
             {
                 "title": "2024 LLM 한국형 보안 가이드라인",
-                "description": "LLM 보안 가이드라인",
+                "description": "프롬프트 주입 공격(탈옥)에 중점을 둔 LLM 한국형 보안 안내서 by K-Shield Jr 12기 Team [세종업고튀어]",
                 "image": "Images/가이드라인.jpeg",
                 "file": "Downloadfile/2024-LLM-한국형-보안-가이드라인.pdf"
             },
             {
-                "title": "탈옥공격 구문 체크리스트",
-                "description": "탈옥공격의 위험성을 체크할 수 있는 구문 616개",
+                "title": "한국어 탈옥 프롬프트 데이터셋 (2024-07-05 ver)",
+                "description": "한국어 탈옥 프롬프트 공격의 실효성을 확인할 수 있는 데이터셋 (지속 업데이트 예정)",
                 "image": "Images/checklist.png",
                 "file": "Downloadfile/jailbreakPrompt.csv"
             }
